@@ -14,7 +14,7 @@ import com.spr.dto.User;
 import com.spr.service.UserService;
 
 @Controller
-@RequestMapping(value="/")
+@RequestMapping
 public class UserController {
 
 	@Autowired
@@ -71,7 +71,6 @@ public class UserController {
 			model.addObject("msg","Invalid User Entry");
 			model.setViewName("login");
 		}
-		
 		return model;
 		
 	}

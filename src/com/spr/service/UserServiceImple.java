@@ -22,7 +22,7 @@ public class UserServiceImple implements UserService {
 	
 	@Override
 	public User Login(User user) {
-		// TODO Auto-generated method stub
+		
 		return loginDao.Login(user);
 	}
 

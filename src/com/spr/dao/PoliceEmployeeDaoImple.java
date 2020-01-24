@@ -21,17 +21,11 @@ public class PoliceEmployeeDaoImple implements PoliceEmployeeDao {
 		this.jt = jt;
 	}
 
-	/*
-	  @ResponseBody static public String getParamId(@RequestParam String ps_id) {
-	  return ps_id; }
-	 */
-	
-	@Override	
-	//public List<PoliceEmployee> policeList(@ RequestParam (name = "ps_id") String pid) {
 	
 	public List<PoliceEmployee> policeList(int ps_id) {
 		
 		String sql = "select*from employee where ps_id = ?"; 
+		
 		
 		List<PoliceEmployee> poEmpList = 
 				jt.query(sql, new Object[]{ps_id}, new RowMapper<PoliceEmployee>() 
@@ -49,6 +43,7 @@ public class PoliceEmployeeDaoImple implements PoliceEmployeeDao {
 				            poEmp.setEmp_dob(rs.getDate("emp_dob"));
 				            poEmp.setEmp_email(rs.getString("emp_email"));
 				            poEmp.setPs_id(rs.getInt("ps_id"));
+				            poEmp.setRole_id(rs.getInt("role_id"));
 						
 				           System.out.println(poEmp);
 						return poEmp;
@@ -59,6 +54,28 @@ public class PoliceEmployeeDaoImple implements PoliceEmployeeDao {
 		
 	
 		return poEmpList;
+	}
+
+	@Override
+	public void setPsAdmin(int emp_id,int role_id) {
+		
+		String sql = "update employee set role_id = ? where emp_id = ?";
+		
+		jt.update(sql, role_id,emp_id);
+		
+	}
+
+
+	@Override
+	public void removePsAdmin(int emp_id,String role_id) {
+		
+		System.out.println("From Implementation-->");
+		System.out.println(emp_id);
+		System.out.println("Before sending -- >"+role_id);
+		String sql = "update employee set role_id = ? where emp_id = ?";
+		jt.update(sql, role_id,emp_id);
+		
+		
 	}
 
 }

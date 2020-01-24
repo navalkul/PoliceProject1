@@ -13,22 +13,20 @@
 		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
-	<bean
-	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-	<property name="prefix" value="/"></property>
-	<property name="suffix" value=".jsp"></property>
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/"></property>
+		<property name="suffix" value=".jsp"></property>
 	</bean>
 	
-	<bean 
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-		<property name="url" value="jdbc:mysql://localhost:3306/login"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/login?useSSL=false"></property>
 		<property name="username" value="root"></property>
-		<property name="password" value="abhishek"></property>
+		<property name="password" value="cdac"></property>
+	</bean>
 		
-		</bean>
-		
-<context:component-scan base-package="com.spr"></context:component-scan>   
+	<context:component-scan base-package="com.spr"></context:component-scan>
+   
 <bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate" autowire="byType"></bean>
 
 

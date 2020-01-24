@@ -5,6 +5,7 @@ public class User {
 	private String userName;
 	private String password;
 	private int role_id;
+	
 	public int getRole_id() {
 		return role_id;
 	}

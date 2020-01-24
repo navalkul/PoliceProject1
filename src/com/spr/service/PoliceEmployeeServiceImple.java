@@ -22,12 +22,23 @@ public class PoliceEmployeeServiceImple implements PoliceEmployeeService {
 		
 		return policeEmpDao.policeList(ps_id);
 	}
-	
-	
-	/*
-	 * @Override public List<PoliceEmployee> policeList(String pid) {
-	 * 
-	 * return policeEmpDao.policeList(pid); }
-	 */
 
+	@Override
+	public void setPsAdmin(int emp_id, int role_id) {
+		
+		policeEmpDao.setPsAdmin(emp_id, role_id);
+	}
+
+	@Override
+	public void removePsAdmin(int emp_id,String role_id) {
+		
+		System.out.println("INside service class");
+		//policeEmpDao.removePsAdmin(emp_id,role_id);
+		policeEmpDao.removePsAdmin(emp_id,role_id);
+		
+		
+		
+	}
+	
+	
 }

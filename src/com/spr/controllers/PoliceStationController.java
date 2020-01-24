@@ -13,7 +13,7 @@ import com.spr.dto.PoliceStation;
 import com.spr.service.PoliceStationService;
 
 @Controller
-public class Master_adminController {
+public class PoliceStationController {
 
 	@Autowired
 	private PoliceStationService psService;
