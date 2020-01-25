@@ -24,6 +24,8 @@ public class PoliceEmployeeController {
 		this.policeEmpServ = policeEmpServ;
 	}
 
+//PoliceStationList
+//----------------------------------------------------------------------------------------
 	@RequestMapping(value = "/poList",method = RequestMethod.POST)
 	public ModelAndView listOfPoliceEmp(@RequestParam String id) {
 
@@ -38,6 +40,7 @@ public class PoliceEmployeeController {
 		return model ;
 	}
 
+//PoliceEmployeeList
 //---------------------------------------------------------------------------------------------------------------
 
 	@RequestMapping(value = "assignAdmin", method = RequestMethod.POST)
@@ -63,7 +66,8 @@ public class PoliceEmployeeController {
 		return model;
 
 	}
-	
+
+//Police SubAdmin Role Assignment
 //---------------------------------------------------------------------------------------------------------------
 
 		@RequestMapping(value = "deleteAdmin", method = RequestMethod.POST)
@@ -89,4 +93,27 @@ public class PoliceEmployeeController {
 			return model;
 
 		}	
+
+
+//Employee's for Police SubAdmin
+//---------------------------------------------------------------------------------------------------------------
+
+		@RequestMapping(value = "psEmpListForSubAdmin",method = RequestMethod.POST)
+		public ModelAndView displayListToSubAdmin(ModelAndView model,@RequestParam String userName) {
+			
+			int gotId = policeEmpServ.getSubAdminPsId(userName);
+			
+			System.out.println("GOT ID IS -> "+gotId+"GOT UserName IS ->"+userName);
+			
+//			List<PoliceEmployee> policeList = policeEmpServ.policeEmpList(gotId);
+//			
+//			model.addObject("policeList", policeList);
+//			model.setViewName("S_AdminHome");
+		
+			return model;
+		}
+		
+		
+		
 }
+

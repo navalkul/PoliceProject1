@@ -19,25 +19,27 @@ public class PoliceEmployeeServiceImple implements PoliceEmployeeService {
 
 	@Override
 	public List<PoliceEmployee> policeList(int ps_id) {
-		
 		return policeEmpDao.policeList(ps_id);
 	}
 
 	@Override
 	public void setPsAdmin(int emp_id, int role_id) {
-		
 		policeEmpDao.setPsAdmin(emp_id, role_id);
 	}
 
 	@Override
 	public void removePsAdmin(int emp_id,String role_id) {
-		
-		System.out.println("INside service class");
-		//policeEmpDao.removePsAdmin(emp_id,role_id);
 		policeEmpDao.removePsAdmin(emp_id,role_id);
-		
-		
-		
+	}
+
+	@Override
+	public List<PoliceEmployee> policeEmpList(int ps_id) {
+		return policeEmpDao.policeEmpList(ps_id);
+	}
+
+	@Override
+	public int getSubAdminPsId(String userName) {
+		return policeEmpDao.getSubAdminPsId(userName);
 	}
 	
 	

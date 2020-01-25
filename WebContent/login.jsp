@@ -8,8 +8,7 @@
 <title>Admin Login</title>
 </head>
 <body style="padding-top: 100px">
-	<div
-		style="display: grid; justify-content: center; align-content: center;">
+	<div style="display: grid; justify-content: center; align-content: center;">
 		<form action="login" method="post">
 			USERNAME::<input type="text" name="userName"><br>
 			<br> PASSWORD::<input type="password" name="password"><br>

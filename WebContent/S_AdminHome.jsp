@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<title>Police Stations</title>
+	<title>Police Station </title>
 		
 	<c:if test="${sessionScope.userName == null }" >">
 		<c:redirect url="login.jsp" ></c:redirect>
@@ -14,48 +14,24 @@
 	
 </head>
 <body>
-
-<div style="background: teal; height: 80vh ;">
-	<div style="display: grid;justify-content: center;align-content: center;">
-		<h1>Welcome to Home MasterAdmin <%= session.getAttribute("userName")%> </h1>
-		
-		<a href="logout.jsp">LogOut</a>
-		
-			<form action="pslist" method="post">
-				<input type="submit" value="Show Police Stations">
-			</form>
-				
-				<!--POLICE STATION LIST-->
-		<table border="1">
-		
-			<thead>
-				<tr><th colspan="5">Police Station List</th></tr>
-				<tr>
-					<th>PSName</th>
-					<th>PSAdd</th>
-				</tr>
-			</thead>
-
-			<c:forEach items="${psList}" var="temp">
-				<tr>
-					
-					<td>${temp.ps_Name}</td>
-					<td>${temp.ps_Address}</td>
-					<td>
-						<form action="poList" method="post" commandName="poId">
-							<input type="hidden" value=${temp.ps_Id} name="id">
-							<input type="submit" value="select">
-						</form>
-					</td>
-					<!--  <td><a href="particularPoliceStation.jsp?ps_Id=${temp.ps_Id}">Select</a></td>-->
-				</tr>
-			</c:forEach>
+	<div style="background: aqua; height: 80vh;">
+		<div style="display: grid; justify-content: center; align-content: center;">
 			
-		</table>
-		
-		<br><br><br><br>
-	
-		<table border="1">
+			<h1>
+				Welcome to Home SubAdmin
+				<%=session.getAttribute("userName")%>
+			</h1>
+
+			<a href="logout.jsp">LogOut</a>
+		<%-- <%
+			 String ShowEmp  = session.getAttribute("userName").toString();
+		%> --%>
+			<form action="psEmpListForSubAdmin" method="post">
+				<input type="submit" value="<%=session.getAttribute("userName") %>" name="userName" placeholder="Show Employee List">
+			</form>
+
+			<!-- POLICE EMPLOYEE LIST -->
+			<table border="1">
 		
 			<thead>
 				<tr>
@@ -74,7 +50,7 @@
 				</tr>
 			</thead>
 
-			<c:forEach items="${poEmpList}" var="temp">
+			<c:forEach items="${policeList}" var="temp">
 				<tr>
 					<td>
 						<form action="deleteAdmin" method="post" commandName="poId">
@@ -101,21 +77,10 @@
 			</c:forEach>
 			
 		</table>
-		
-
+			
+			
+		</div>
 	</div>
-</div>
+
 </body>
 </html>
-
-
-
-<%-- 
-<a href="login" >
-			Logout <%=session.invalidate()%>
-			<%	Function logOut()
-			{
-				
-			}
-			%>
-		</a> --%>
