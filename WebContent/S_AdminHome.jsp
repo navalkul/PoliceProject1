@@ -27,7 +27,8 @@
 			 String ShowEmp  = session.getAttribute("userName").toString();
 		%> --%>
 			<form action="psEmpListForSubAdmin" method="post">
-				<input type="submit" value="<%=session.getAttribute("userName") %>" name="userName" placeholder="Show Employee List">
+				<input type="hidden" value="<%=session.getAttribute("userName")%>" name="userName" placeholder="Show Employee List">
+				<input type="submit" value="Show Police Employees">
 			</form>
 
 			<!-- POLICE EMPLOYEE LIST -->

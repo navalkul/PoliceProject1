@@ -105,10 +105,10 @@ public class PoliceEmployeeController {
 			
 			System.out.println("GOT ID IS -> "+gotId+"GOT UserName IS ->"+userName);
 			
-//			List<PoliceEmployee> policeList = policeEmpServ.policeEmpList(gotId);
-//			
-//			model.addObject("policeList", policeList);
-//			model.setViewName("S_AdminHome");
+			List<PoliceEmployee> policeList = policeEmpServ.policeEmpList(gotId);
+		
+			model.addObject("policeList", policeList);
+			model.setViewName("S_AdminHome");
 		
 			return model;
 		}
