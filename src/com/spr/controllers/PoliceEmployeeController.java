@@ -102,7 +102,6 @@ public class PoliceEmployeeController {
 		public ModelAndView displayListToSubAdmin(ModelAndView model,@RequestParam String userName) {
 			
 			int gotId = policeEmpServ.getSubAdminPsId(userName);
-			
 			System.out.println("GOT ID IS -> "+gotId+"GOT UserName IS ->"+userName);
 			
 			List<PoliceEmployee> policeList = policeEmpServ.policeEmpList(gotId);
